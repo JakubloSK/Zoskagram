@@ -4,29 +4,22 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "prisma generate && next build",
+    "postinstall": "prisma generate",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.7.4",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
-    "@mui/icons-material": "^6.1.3",
-<<<<<<< HEAD
-    "@mui/material": "^6.1.9",
-    "@mui/styled-engine-sc": "^6.1.9",
-    "next": "^15.0.3",
-    "next-auth": "^4.24.10",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "styled-components": "^6.1.13"
-=======
-    "@mui/material": "^6.1.3",
-    "next": "^14.2.15",
-    "next-auth": "^4.24.10",
+    "@mui/icons-material": "^6.1.2",
+    "@mui/material": "^6.1.2",
+    "@prisma/client": "^6.0.0",
+    "next": "^14.2.14",
+    "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18"
->>>>>>> 91f5159319e4d6a56fccb38a43d4804284ac2b4e
   },
   "devDependencies": {
     "@types/node": "^20",
@@ -34,6 +27,7 @@
     "@types/react-dom": "^18",
     "eslint": "^8",
     "eslint-config-next": "14.2.8",
+    "prisma": "^6.0.0",
     "typescript": "^5"
   }
 }
