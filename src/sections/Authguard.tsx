@@ -1,4 +1,7 @@
 // src/components/AuthGuard.tsx
+
+"use client"
+
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { AuthService } from "../app/auth/authService";
