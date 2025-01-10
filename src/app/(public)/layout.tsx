@@ -1,13 +1,15 @@
 
 
-import Container from "@mui/material/Container";
+import { Metadata } from 'next'; // Ensure this is imported
 
-export const metedata = { title: "Public | SnapZoska" };
-
-export default function PublicLayout( {children}:{children: React.ReactNode} ) {
-    return(
-        <Container>
-            {children}
-        </Container>
-    );
+export const metadata: Metadata = {
+  title: "Public | SnapZoska", // Correct the spelling of 'metadata'
 };
+
+export default function PublicLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div>
+      {children}
+    </div>
+  );
+}
