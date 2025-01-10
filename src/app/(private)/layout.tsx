@@ -3,7 +3,7 @@
 // src/app/private/layout.tsx
 import { ReactNode } from "react";
 import Container from "@mui/material/Container";
-import AuthGuard from "../app/section/Authguard";
+import AuthGuard from "../../sections/Authguard";
 
 export const metadata = { title: "Private | SnapZoska" };
 
