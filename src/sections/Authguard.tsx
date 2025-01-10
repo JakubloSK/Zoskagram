@@ -1,28 +1,28 @@
-// src/components/AuthGuard.tsx
+'use client'
 
-"use client"
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import React, { useEffect } from "react";
 
-import { useEffect } from "react";
-import { useRouter } from "next/router";
-import { AuthService } from "../app/auth/authService";
-
-interface AuthGuardProps {
-  children: React.ReactNode;
-}
-
-const AuthGuard: React.FC<AuthGuardProps> = ({ children }) => {
+const AuthGuard: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    const isAuthenticated = AuthService.isAuthenticated();
-
-    if (!isAuthenticated) {
-      router.push("/prihlasenie"); // Redirect to the login page
+    if (status === "unauthenticated") {
+      router.push("/auth/prihlasenie"); // Redirect to your login page
     }
-  }, [router]);
+  }, [status, router]);
 
-  // Render children only if the user is authenticated
-  return <>{AuthService.isAuthenticated() ? children : null}</>;
+  if (status === "loading") {
+    return <div>Loading...</div>; // Show a loading state while checking auth
+  }
+
+  if (session) {
+    return <>{children}</>;
+  }
+
+  return null;
 };
 
 export default AuthGuard;
